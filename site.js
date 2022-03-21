@@ -21,7 +21,7 @@
 */
 
 
-const vue_app = new Vue({
+const vue_app = Vue.createApp({
       el: '#vue_app',
       // This automatically imports your movies.json file and puts it into
       //   the variable: movies
@@ -30,25 +30,70 @@ const vue_app = new Vue({
                   this.movies = json
             })
       },
-      data: {
+      data() {
             // This holds your movies.json data.
             movies: []
 
             /* ADD ADDITIONAL VARIABLES FOR STEP 3 HERE */
-      },
+            title: "IMDB + Dani's Top 8 Movies",
+            owner: 'Dani',
+            github: 'https://github.com/daniellanev4/p3-vue-starter.git'
+      }
+    },
       methods: {
             /* ADD FUNCTIONS/METHODS FOR STEP 7 HERE */
+            getMonthText(dateArray)
+            {
+              let month = "";
+              switch (dataArray[1]) {
+                case 1:
+                  month = "January";
+                  break;
+                case 2:
+                  month = "February";
+                  break;
+                case 3:
+                  month = "March";
+                  break;
+                case 4:
+                  month = "April";
+                  break;
+                case 5:
+                  month = "May";
+                  break;
+                case 6:
+                  month = "June";
+                  break;
+                case 7:
+                  month = "July";
+                  break;
+                case 8:
+                  month = "August";
+                  break;
+                case 9:
+                  month = "September";
+                  break;
+                case 10:
+                  month = "October";
+                  break;
+                case 11:
+                  month = "November";
+                  break;
+                case 12:
+                  month = "December";
+                  break;
+                default:
+                  month = "Month";
+              }
+              return month + " " + dateArray[2] + ", " + dateArray[0];
+            },
+
+            posterClick(index)
+            {
+              if(this.movies[index])
+            }
       }
 })
 
-const app = Vue.createApp({
-  data() {
-    return {
-      title: 'IMDB + Dani's Top 8 Movies'
-      owner:'Dani'
-      github: ''
-    }
-  }
-})
 
 app.mount('#app')
