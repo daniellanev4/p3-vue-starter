@@ -90,10 +90,20 @@ const vue_app = Vue.createApp({
 
             posterClick(index)
             {
-              if(this.movies[index])
+              if(this.movies[index].posterindex < this.movies[index].posters.length - 1)
+              {
+                this.movies[index].posterindex++;
+                else {
+                  this.movies[index].posterindex = 0;
+                }
+              },
+
+            textTime(minutes)
+            {
+              return Math.trunc(minutes/60) + "h " + (minutes%60) + "m";
             }
       }
 })
 
 
-app.mount('#app')
+vue_app.mount("#vue_app")
